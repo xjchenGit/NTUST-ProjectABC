@@ -6,6 +6,12 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
+class BaseModel(models.Model):
+    add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
+
+    class Meta:
+        abstract = True
+
 class UserProfile(AbstractUser):
     nick_name = models.CharField(max_length=50, verbose_name=u"昵称", default=u"")
     birthday = models.DateField(verbose_name=u"生日", null=True, blank=True)
