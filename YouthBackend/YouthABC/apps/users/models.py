@@ -17,15 +17,17 @@ class UserProfile(AbstractUser):
     image = models.ImageField(upload_to="image/%Y/%m",verbose_name="头像",default="image/default.png", max_length=100)
     parent_mobile = models.CharField(max_length=11,verbose_name="家长手机号",null=True, blank=True)
     address = models.CharField(max_length=100,verbose_name="收货地址管理")
-    
+
+class ChildrenProfile(models.Model):
     #孩子信息
+    child_username = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name="家长")
     student_name = models.CharField(max_length=50,verbose_name="学员姓名")
     gender = models.CharField(max_length=50, choices=(("male", "男"), ("female", "女")), default="female")
     birthday = models.DateField(verbose_name="出生年月", null=True, blank=True)
     school = models.CharField(max_length=50,verbose_name="所在学校",default="学校")
     current_grade = models.CharField(max_length=50,verbose_name="所在年级",default="一年级")
     personal_signature = models.CharField(max_length=50,verbose_name="个性签名",default=" ")
-    
+
     class Meta:
         verbose_name = "用户信息"
         verbose_name_plural = verbose_name

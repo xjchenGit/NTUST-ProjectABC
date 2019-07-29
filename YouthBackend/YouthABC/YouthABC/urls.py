@@ -16,6 +16,7 @@ Including another URLconf
 from __future__ import unicode_literals
 import xadmin
 # from django.contrib import admin
+from django.conf.urls import url
 from django.urls import path,re_path,include
 from django.views.static import serve
 from YouthABC.settings import MEDIA_ROOT
@@ -45,6 +46,8 @@ urlpatterns = [
     re_path('^', include(router.urls)),
     #drf文档，title自定义
     path('docs',include_docs_urls(title='智富ABC——API文档')),
+    #富文本编辑
+    url('^ueditor/',include('DjangoUeditor.urls')),
     
 ]
 

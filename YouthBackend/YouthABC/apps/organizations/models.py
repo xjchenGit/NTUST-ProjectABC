@@ -24,7 +24,7 @@ class CourseOrg(models.Model):
     """
     课程机构
     """
-    city = models.ForeignKey(CityDict, on_delete=models.CASCADE, verbose_name="所在城市")
+    city_name = models.ForeignKey(CityDict, on_delete=models.CASCADE, verbose_name="所在城市")
     name = models.CharField(max_length=50, verbose_name="机构名称")
     desc = models.TextField(verbose_name="机构描述")
     tag = models.CharField(default='全国知名', max_length=10, verbose_name='机构标签')
@@ -38,7 +38,7 @@ class CourseOrg(models.Model):
     add_time = models.DateField(default=datetime.now)
 
     class Meta:
-        verbose_name = u"课程机构"
+        verbose_name = "课程机构"
         verbose_name_plural = verbose_name
 
     # # 获取课程机构的教师数量

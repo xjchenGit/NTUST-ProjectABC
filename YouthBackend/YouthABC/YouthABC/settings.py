@@ -41,9 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'organizations.apps.OrganizationsConfig',
+    'courses.apps.CoursesConfig',
+    'operations.apps.OperationsConfig',
+    'trade.apps.TradeConfig',
     'xadmin.apps.XAdminConfig',
     'rest_framework',
     'crispy_forms',
+    'DjangoUeditor',
 ]
 
 MIDDLEWARE = [
