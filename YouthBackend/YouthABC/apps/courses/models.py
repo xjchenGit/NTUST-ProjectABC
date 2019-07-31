@@ -17,7 +17,7 @@ class CoursesCategory(models.Model):
         (3, "三级类目"),
     )
 
-    name = models.CharField(default="", max_length=30, verbose_name="类别名", help_text="类别名")
+    name = models.CharField(default="", primary_key=True,max_length=30, verbose_name="类别名", help_text="类别名")
     code = models.CharField(default="", max_length=30, verbose_name="类别code", help_text="类别code")
     desc = models.TextField(default="", verbose_name="类别描述", help_text="类别描述")
     category_type = models.IntegerField(choices=CATEGORY_TYPE, verbose_name="类目级别", help_text="类目级别")
@@ -89,12 +89,6 @@ class Course(models.Model):
     #     return mark_safe("<a href='/course/{}'>跳转</a>".format(self.id))
     # go_to.short_description = "跳转"
 
-class BannerCourse(Course):
-    class Meta:
-        verbose_name = "轮播课程"
-        verbose_name_plural = verbose_name
-        proxy = True
-
 class Lesson(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="课程")  #on_delete表示对应的外键数据被删除后，当前的数据应该怎么办
     name = models.CharField(max_length=100, verbose_name="章节名")
@@ -133,3 +127,9 @@ class CourseResource(models.Model):
 
     def __str__(self):
         return self.name
+
+class BannerCourse(Course):
+    class Meta:
+        verbose_name = "轮播课程"
+        verbose_name_plural = verbose_name
+        proxy = True

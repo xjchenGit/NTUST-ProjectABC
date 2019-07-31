@@ -20,26 +20,37 @@ from django.conf.urls import url
 from django.urls import path,re_path,include
 from django.views.static import serve
 from YouthABC.settings import MEDIA_ROOT
+from rest_framework.authtoken import views
+from rest_framework_jwt.views import obtain_jwt_token
 
 #APIurl部分
 from rest_framework.documentation import include_docs_urls
 from organizations.views import CityDictViewSet,CourseOrgViewSet,TeacherViewSet
+from courses.views import CourseViewSet
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 
 #配置CityDict的url
-router.register('citydict', CityDictViewSet,base_name="citydict")
+router.register('citydicts', CityDictViewSet,base_name="citydicts")
 
 #配置CourseOrg的url
-router.register('courseorg', CourseOrgViewSet,base_name="courseorg")
+router.register('courseorgs', CourseOrgViewSet,base_name="courseorgs")
 
 #配置Teacher的url
-router.register('teacher', TeacherViewSet,base_name="teacher")
+router.register('teachers', TeacherViewSet,base_name="teachers")
+
+#配置Course的url
+router.register('courses', CourseViewSet,base_name="courses")
+
+#配置Tag的url
+router.register('courses', CourseViewSet,base_name="courses")
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('xadmin/', xadmin.site.urls),
+    # token
+    path('api-token-auth/', views.obtain_auth_token),
     path('api-auth/',include('rest_framework.urls',namespace='rest_framework')),
     re_path('media/(?P<path>.*)$',serve,{'document_root':MEDIA_ROOT}),
     #include router
@@ -48,7 +59,11 @@ urlpatterns = [
     path('docs',include_docs_urls(title='智富ABC——API文档')),
     #富文本编辑
     url('^ueditor/',include('DjangoUeditor.urls')),
+    # jwt的token认证接口
+    # path('jwt-auth/', obtain_jwt_token ),
     
+    #jwt的认证接口
+    url(r'^login/', obtain_jwt_token),
 ]
 
 

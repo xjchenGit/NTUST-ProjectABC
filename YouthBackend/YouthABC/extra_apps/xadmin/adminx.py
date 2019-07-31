@@ -1,5 +1,6 @@
 from __future__ import absolute_import
 import xadmin
+from xadmin import views
 from .models import UserSettings, Log
 from xadmin.layout import *
 
@@ -10,6 +11,16 @@ class UserSettingsAdmin(object):
     hidden_menu = True
 
 xadmin.site.register(UserSettings, UserSettingsAdmin)
+
+class GlobalSetting(object):
+    #设置base_site.html的Title
+    site_title = '智富ABC后台管理系统'
+    #设置base_site.html的Footer
+    site_footer  = '言简团队'
+    # 收起菜单
+    menu_style = "accordion"
+    
+xadmin.site.register(views.CommAdminView, GlobalSetting)
 
 class LogAdmin(object):
 

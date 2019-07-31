@@ -31,12 +31,12 @@ class CourseOrgViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewset
     """
     所有课程机构的列表（ViewSet）
     """
-    queryset = CourseOrg.objects.all()
+    queryset = CourseOrg.objects.all().order_by('id')
     serializer_class = CourseOrgSerializer
 
 class TeacherViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     """
     所有老师的列表（ViewSet）
     """
-    queryset = Teacher.objects.all()
+    queryset = Teacher.objects.all().order_by('id')
     serializer_class = TeacherSerializer

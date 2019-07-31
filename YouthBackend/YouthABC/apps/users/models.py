@@ -17,7 +17,14 @@ class UserProfile(AbstractUser):
     image = models.ImageField(upload_to="image/%Y/%m",verbose_name="头像",default="image/default.png", max_length=100)
     parent_mobile = models.CharField(max_length=11,verbose_name="家长手机号",null=True, blank=True)
     address = models.CharField(max_length=100,verbose_name="收货地址管理")
-
+    
+    class Meta:
+        verbose_name = "用户信息"
+        verbose_name_plural = verbose_name
+    
+    def __str__(self):
+        return self.username
+        
 class ChildrenProfile(models.Model):
     #孩子信息
     child_username = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name="家长")
@@ -29,7 +36,7 @@ class ChildrenProfile(models.Model):
     personal_signature = models.CharField(max_length=50,verbose_name="个性签名",default=" ")
 
     class Meta:
-        verbose_name = "用户信息"
+        verbose_name = "孩子信息"
         verbose_name_plural = verbose_name
     
     def __str__(self):
