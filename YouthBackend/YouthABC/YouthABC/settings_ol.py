@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 SECRET_KEY = '-n!2(vg*5s7@n_hcqm-=_+dcwz6qa2$e0qcgmki23-mk5r4gn!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -101,9 +101,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'Tencent867704521',
         'HOST': 'cdb-1q3nkbdb.gz.tencentcdb.com',
-        'PORT': '10018',
-        'OPTIONS':{'init_command':'SET default_storage_engine=INNODB;'},
-        #'OPTIONS': { 'init_command': 'SET storage_engine=INNODB;' }
+        'PORT': '10018'
     }
 }
 
@@ -116,7 +114,7 @@ DATABASES = {
 #         'PASSWORD': '867704521',
 #         'HOST': '127.0.0.1',
 #         'PORT': '3306',
-#         # 'OPTIONS': { 'init_command': 'SET storage_engine=INNODB;' }
+#         #'OPTIONS': { 'init_command': 'SET storage_engine=INNODB;' }
 #     }
 # }
 
@@ -161,9 +159,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-# STATICFILES_DIRS = [
-#     '/root/documents/ProjectABC/YouthBackend/YouthABC/static',
-# ]
+STATICFILES_DIRS = [
+    '/root/documents/ProjectABC/YouthBackend/YouthABC/static',
+]
 # STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 # xadmin
 AUTH_USER_MODEL = "users.UserProfile"

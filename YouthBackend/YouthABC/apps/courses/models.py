@@ -17,7 +17,7 @@ class CoursesCategory(models.Model):
         (3, "三级类目"),
     )
 
-    name = models.CharField(default="", primary_key=True,max_length=30, verbose_name="类别名", help_text="类别名")
+    name = models.CharField(default="",max_length=30, verbose_name="类别名", help_text="类别名")
     code = models.CharField(default="", max_length=30, verbose_name="类别code", help_text="类别code")
     desc = models.TextField(default="", verbose_name="类别描述", help_text="类别描述")
     category_type = models.IntegerField(choices=CATEGORY_TYPE, verbose_name="类目级别", help_text="类目级别")
@@ -49,7 +49,7 @@ class Tag(models.Model):
 
 class Course(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, verbose_name="讲师")
-    category = models.ForeignKey(CoursesCategory, on_delete=models.CASCADE,default="后端开发",max_length=20, verbose_name="课程类别")
+    category = models.ForeignKey(CoursesCategory, on_delete=models.CASCADE,default="1",max_length=20, verbose_name="课程类别")
     tag_name = models.ForeignKey(Tag,on_delete=models.CASCADE,default="",verbose_name="课程标签", max_length=10)
     course_org = models.ForeignKey(CourseOrg, null=True, blank=True, on_delete=models.CASCADE, verbose_name="课程机构")
     name = models.CharField(verbose_name="课程名", max_length=50)
