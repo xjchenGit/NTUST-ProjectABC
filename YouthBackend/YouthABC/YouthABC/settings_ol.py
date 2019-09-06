@@ -52,9 +52,11 @@ INSTALLED_APPS = [
     'DjangoUeditor',
     'django_seed',
     'rest_framework.authtoken',
+    'coreschema',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -195,3 +197,5 @@ JWT_AUTH = {
 
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CORS_ORIGIN_ALLOW_ALL = True
