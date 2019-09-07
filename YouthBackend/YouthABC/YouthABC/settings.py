@@ -94,31 +94,31 @@ WSGI_APPLICATION = 'YouthABC.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'YouthDB',
+#         'USER': 'root',
+#         'PASSWORD': 'Tencent867704521',
+#         'HOST': 'cdb-1q3nkbdb.gz.tencentcdb.com',
+#         'PORT': '10018',
+#         'OPTIONS':{'init_command':'SET default_storage_engine=INNODB;'},
+#         #'OPTIONS': { 'init_command': 'SET storage_engine=INNODB;' }
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'YouthDB',
         'USER': 'root',
-        'PASSWORD': 'Tencent867704521',
-        'HOST': 'cdb-1q3nkbdb.gz.tencentcdb.com',
-        'PORT': '10018',
-        'OPTIONS':{'init_command':'SET default_storage_engine=INNODB;'},
-        #'OPTIONS': { 'init_command': 'SET storage_engine=INNODB;' }
+        'PASSWORD': '867704521',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        # 'OPTIONS': { 'init_command': 'SET storage_engine=INNODB;' }
     }
 }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'youthdb',
-#         'USER': 'root',
-#         'PASSWORD': '867704521',
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306',
-#         # 'OPTIONS': { 'init_command': 'SET storage_engine=INNODB;' }
-#     }
-# }
 
 
 # Password validation
