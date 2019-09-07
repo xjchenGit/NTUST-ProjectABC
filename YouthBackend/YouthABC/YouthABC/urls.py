@@ -43,7 +43,7 @@ router.register('teachers', TeacherViewSet,base_name="teachers")
 #配置Course的url
 router.register('courses', CourseViewSet,base_name="courses")
 
-#配置Tag的url
+#配置Order的url
 router.register('courses', CourseViewSet,base_name="courses")
 
 urlpatterns = [

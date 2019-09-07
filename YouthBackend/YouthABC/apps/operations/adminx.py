@@ -1,28 +1,20 @@
 import xadmin
 from xadmin import views
 
-from .models import Banner,UserAsk,CourseComments
-from .models import UserFavorite,UserMessage,UserCourse
-
+from .models import UserAsk,CourseComments
 
 # Register your models here.
 
-class BannerAdmin(object):
-    list_display = ['title', 'image','url','index']
-    search_fields = ['title']
-    model_icon = 'fa fa-telegram'
-
 class UserAskAdmin(object):
-    list_display = ['name','mobile','course_name']
+    list_display = ['name', 'course_name']
     search_fields = ['name']
     model_icon = 'fa fa-telegram'
 
 class CourseCommentsAdmin(object):
-    list_display = ['user','course','comments']
-    search_fields = ['user','course','comments']
+    list_display = ['user', 'course','comments']
+    search_fields = ['course','comments']
     model_icon = 'fa fa-telegram'
 
-xadmin.site.register(Banner, BannerAdmin)
-xadmin.site.register(UserAsk, UserAskAdmin)
-xadmin.site.register(CourseComments, CourseCommentsAdmin)
+xadmin.site.register(UserAsk,UserAskAdmin)
+xadmin.site.register(CourseComments,CourseCommentsAdmin)
 # Register your models here.

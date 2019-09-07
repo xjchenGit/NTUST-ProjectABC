@@ -13,7 +13,8 @@ class CoursesAdmin(object):
 
 class CoursesCategoryAdmin(object):
     list_display = ['name','category_type','parent_category']
-    search_fields = ['name']
+    search_fields = ['name','category_type']
+    list_filter = ['category_type']
     model_icon = 'fa fa-telegram'
 
 class BannerCourseAdmin(object):
